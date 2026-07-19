@@ -55,24 +55,6 @@
             z-index: 0;
             pointer-events: none;
         }
-
-        #overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: #030305;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: opacity 0.6s ease, visibility 0.6s;
-            font-size: 1.1rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #ff2a2a;
-            text-shadow: 0 0 8px #ff0000;
-        }
-
         .profile-container {
             background: rgba(8, 8, 12, 0.75);
             backdrop-filter: blur(25px);
@@ -214,13 +196,9 @@
         }
     </style>
 </head>
-<body id="body-wrapper">
-
+<body id="body-wrapper" class="loaded">
     <div class="eclipse-bg"></div>
     <canvas id="particles"></canvas>
-
-    <div id="overlay" onclick="revealProfile()">[тык🫦]</div>
-
     <div class="profile-container">
         <div class="avatar-box">
             <img class="avatar" src="https://i.postimg.cc/CKsMXF2d/Screenshot-2026-07-18-19-11-23-240-com-zhiliaoapp-musically-edit.jpg" alt="Avatar">
@@ -305,20 +283,8 @@
 
         init();
         animate();
-
-        function revealProfile() {
-            const overlay = document.getElementById('overlay');
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-                overlay.style.visibility = 'hidden';
-                document.getElementById('body-wrapper').classList.add('loaded');
-                toggleMusic();
-            }, 600);
-        }
-
         const audio = document.getElementById('bg-music');
         const playBtn = document.getElementById('play-button');
-
         function toggleMusic() {
             if (audio.paused) {
                 audio.play().then(() => {
