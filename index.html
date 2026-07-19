@@ -215,16 +215,22 @@
     </style>
 </head>
 <body id="body-wrapper">
-<div class="profile-container">
+
+    <div class="eclipse-bg"></div>
+    <canvas id="particles"></canvas>
+
+    <div id="overlay" onclick="revealProfile()">[тык🫦]</div>
+
+    <div class="profile-container">
         <div class="avatar-box">
-            <img class="avatar" src="https://postimg.cc" alt="Avatar">
+            <img class="avatar" src="https://i.postimg.cc/CKsMXF2d/Screenshot-2026-07-18-19-11-23-240-com-zhiliaoapp-musically-edit.jpg" alt="Avatar">
         </div>
 
         <h1>Coffee</h1>
         <div class="status">love website</div>
         
         <div>
-            <span class="badge-info"
+            <span class="badge-info">
  🎌Scalvor</span>
             <span class="badge-info">🫦website coding</span>
         </div>
@@ -238,7 +244,7 @@
                 <div class="track-title">тело (Slowed)</div>
                 <div class="track-artist">DJ ZUP RAIii</div>
             </div>
-            <audio id="bg-music" src="music.mp3" loop></audio>
+            <audio id="bg-music" src="" loop></audio>
             <button class="play-btn" id="play-button" onclick="toggleMusic()">▶</button>
         </div>
     </div>
@@ -320,8 +326,9 @@
                 }).catch(e => {
                     playBtn.innerText = '▶';
                 });
-            } else {
-                audio.pause();
-playBtn.innerText = '👁️';
+        } else {
+        audio.pause();
+        playBtn.innerText = '▶';
+    }
 }
-}
+        
